@@ -6,4 +6,4 @@ A minimal, functional raytracer in Kotlin.
 * Supersampling
 * Octree ray collision accelerator
 
-![A test render at 10 samples/pp](https://i.imgur.com/KfuhTnM.png)
+![A test render at 10 samples/pp](https://i.imgur.com/63IuCJV.png)
