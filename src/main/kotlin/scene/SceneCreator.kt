@@ -25,7 +25,7 @@ fun initScene(): Scene {
         ),
         lights = listOf(Light(Point(z = 15.0, x = 20.0, y = 0.1))),
         camera = Camera(
-            transform = Transform(w = -30.0) + Transform(u = 10.0) + Transform(x = 0.4, y = -12.0, z = 1.4),
+            transform = Transform(w = -30.0) + Transform(u = 10.0) + Transform(x = 0.0, y = -12.0, z = 1.4),
             horizontalFOV = 48.0
         )
     )

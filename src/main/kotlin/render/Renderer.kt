@@ -27,12 +27,11 @@ class Renderer {
         println("${accelerator.polys.size} polys in scene...")
 
         (0 until xSize * ySize).parallelForEach {
-            rayGenerator.sampleCameraRays(it % xSize, it / xSize, samples = 10)
+            rayGenerator.sampleCameraRays(it % xSize, it / xSize, samples = 50)
                 .mapNotNull { ray -> findBounceSingleSided(ray, accelerator) }
                 .map { bounce -> (bounce to directIllumination(bounce, scene, accelerator) + indirectIllumination(bounce, scene, accelerator) )}
-                .map { calculateColor(it.first, it.second) }
-                .average()
-                .let { color -> target.setRGB(it % xSize, ySize - 1 - it / xSize, color.rgb) }
+                .map { (bounce, illumination) -> calculateColor(bounce, illumination) }
+                .let { subPixels -> target.setRGB(it % xSize, ySize - 1 - it / xSize, subPixels.average().rgb) }
         }
 
         ImageIO.write(target, "png", File("voodoo.png"))
