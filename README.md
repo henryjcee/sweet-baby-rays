@@ -1,2 +1,2 @@
-# voodoo-rays
+# sweet-baby-rays
 Kotlin Raytracer
